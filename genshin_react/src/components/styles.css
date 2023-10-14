@@ -44,3 +44,8 @@
     width: 5%; /* Set the width of the image to 50% of its parent container */
   height: auto;
 }
+
+.character {
+    width: 40%;
+    height: auto;
+}
