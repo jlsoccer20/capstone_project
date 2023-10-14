@@ -31,11 +31,16 @@
 
 /* This one is unused so far*/
 .header-image-home {
-    width: 95%; /* Set the width of the image to 50% of its parent container */
+    width: 75%; /* Set the width of the image to 50% of its parent container */
   height: auto;
 }
 
 .header-image {
     width: 75%; /* Set the width of the image to 50% of its parent container */
+  height: auto;
+}
+
+.icon {
+    width: 5%; /* Set the width of the image to 50% of its parent container */
   height: auto;
 }

@@ -4,7 +4,7 @@ function Home() {
             
             <h1 className="header-title">Genshin Impact Wish Simulator</h1>
             <div className="my-4">
-                
+                           
                 
             </div>
         </div>
