@@ -45,9 +45,11 @@ function App() {
   return (
     <Router>
         <Nav />
+        
         <Header />  
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Landing />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />    
           <Route path='/characters' element={<Characters />} /> 
           <Route path='/collection' element={<Collection />} />
