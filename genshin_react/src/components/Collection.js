@@ -1,13 +1,38 @@
+import { useEffect, useState } from "react";
+
 function Collection() {
+
+    const [characters, setCharacters] = useState([]) ; // setting state to empty array
+
+    useEffect(() => {
+        async function fetchData() {
+          try {
+            const response = await fetch('https://gsi.fly.dev/characters');
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const jsonData = await response.json();
+            setCharacters(jsonData.results);
+            console.log(jsonData);
+            
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            
+          }
+        }
+    
+        fetchData();
+      }, []);
+    
     return (
         // similar to Agents, use list to populate display
-        // TODO: do fetch requests here for characters, usestate
+        // TODO: do fetch requests here for characters, useEffect useState hooks
         <div className="container-fluid">
             
-            <h1 className="header-title">Genshin Impact Wish Simulator COLLECTION HAHAHAHAHAHAHåå</h1>
+            <h1 className="header-title">Genshin Impact Wish Simulator Collection</h1>
             <div className="my-4">
-                           
-            <img className="character" src={process.env.PUBLIC_URL + "/faruzan.png"} alt="Genshin Banner"></img>
+            {characters.map(c=><div>{c.name}</div>)}           
+            {/* <img className="character" src={process.env.PUBLIC_URL + "/faruzan.png"} alt="Genshin Banner"></img>
         <img className="character" src={process.env.PUBLIC_URL + "/hutao.png"} alt="Genshin Banner"></img>
         <img className="character" src={process.env.PUBLIC_URL + "/mona.webp"} alt="Genshin Banner"></img>
         <img className="character" src={process.env.PUBLIC_URL + "/noelle.png"} alt="Genshin Banner"></img>
@@ -30,7 +55,7 @@ function Collection() {
 
         <p></p>
         <img className="icon" src={process.env.PUBLIC_URL + "/primogemIcon.png"} alt="Genshin Banner"></img>
-        <img className="icon" src={process.env.PUBLIC_URL + "/GenshinIcon.png"} alt="Genshin Banner"></img>    
+        <img className="icon" src={process.env.PUBLIC_URL + "/GenshinIcon.png"} alt="Genshin Banner"></img>     */}
             </div>
         </div>
     );

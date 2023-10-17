@@ -69,11 +69,11 @@ function App() {
         //<pre>{JSON.stringify(data, null, 2)}</pre>
         <div>
             <h2>Character List:</h2>
-            {data && data.characters && data.characters.length > 0 ? (
+            {data && data.results && data.results.length > 0 ? (
             <ul>
-              {data.characters.map((character, index) => (
+              {data.results.map((character, index) => (
                 <li key={index}>
-                  <strong>Name:</strong> {character.name}, <strong>Weapon Type:</strong> {character.weaponType}
+                  <strong>Name:</strong> {character.name}, <strong>Weapon:</strong> {character.weapon},<strong>Vision:</strong> {character.vision}
                 </li>
               ))}
             </ul>
