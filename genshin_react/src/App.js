@@ -7,7 +7,17 @@ import Characters from './components/Characters';
 import Collection from './components/Collection';
 import Header from './components/Header';
 
+import ConfirmCharacterDelete from "./components/ConfirmCharacterDelete";
+import CharacterForm from "./components/CharacterForm";
+import CharacterList from "./components/CharacterList";
+import Landing from "./components/Landing";
+import Nav from "./components/Nav";
 
+const componentMap = {
+    "form": CharacterForm,
+    "list": CharacterList,
+    "landing": Landing
+  }
 
 function App() {
   const [data, setData] = useState(null);
@@ -34,6 +44,7 @@ function App() {
 
   return (
     <Router>
+        <Nav />
         <Header />  
         <Routes>
           <Route path='/' element={<Home />} />
