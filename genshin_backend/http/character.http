@@ -1,0 +1,27 @@
+@url = http://localhost:8080/api/character
+
+// find()
+GET {{url}} HTTP/1.1
+
+###
+
+// find()
+GET {{url}}/2 HTTP/1.1
+
+###
+
+// update()
+PUT {{url}}/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 99,
+    "name": "Test Name",
+    "weapon": "Test Weapon",
+    "vision": "Test Vision",
+    "collection": []
+}
+
+###
+
+DELETE {{url}}/6 HTTP/1.1

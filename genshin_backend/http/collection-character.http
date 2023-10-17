@@ -1,0 +1,29 @@
+@url = http://localhost:8080/api/collection/character
+
+// add()
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "collectionId": 1,
+    "character": {
+        "id": 99
+    }
+}
+
+###
+
+// update()
+PUT {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "collectionId": 1,
+    "character": {
+        "id": 100
+    }
+}
+
+###
+
+DELETE {{url}}/1/1 HTTP/1.1

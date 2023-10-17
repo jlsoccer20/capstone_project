@@ -51,7 +51,7 @@ function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />    
-          <Route path='/character' element={<Characters />} /> 
+          <Route path='/characters/:id' element={<Characters />} /> 
           <Route path='/collection' element={<Collection />} />
 
           <Route path='/characters' element={<CharacterList/>} />

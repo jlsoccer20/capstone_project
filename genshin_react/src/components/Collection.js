@@ -1,8 +1,10 @@
 function Collection() {
     return (
+        // similar to Agents, use list to populate display
+        // TODO: do fetch requests here for characters, usestate
         <div className="container-fluid">
             
-            <h1 className="header-title">Genshin Impact Wish Simulator COLLECTION HAHAHAHAHAHAHå</h1>
+            <h1 className="header-title">Genshin Impact Wish Simulator COLLECTION HAHAHAHAHAHAHåå</h1>
             <div className="my-4">
                            
             <img className="character" src={process.env.PUBLIC_URL + "/faruzan.png"} alt="Genshin Banner"></img>
