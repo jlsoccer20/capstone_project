@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://gsi.fly.dev/');
+        const response = await fetch('https://gsi.fly.dev/characters');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -51,8 +51,14 @@ function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />    
-          <Route path='/characters' element={<Characters />} /> 
+          <Route path='/character' element={<Characters />} /> 
           <Route path='/collection' element={<Collection />} />
+
+          <Route path='/characters' element={<CharacterList/>} />
+          <Route path='/characters/add' element={<CharacterForm/>} />
+          <Route path='/characters/edit/:id' element={<CharacterForm/>} />
+          <Route path='/characters/delete/:id' element={<ConfirmCharacterDelete/>} />
+          <Route path='*' element={"Not found"} />
       </Routes>
 
     <div className="App">
