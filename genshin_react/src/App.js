@@ -51,13 +51,11 @@ function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />    
-          <Route path='/characters/:id' element={<Characters />} /> 
+          <Route path='/characters/' element={<Characters />} /> 
           <Route path='/collection' element={<Collection />} />
+          <Route path='/characters/:id' element={<Characters />} /> 
 
-          <Route path='/characters' element={<CharacterList/>} />
-          <Route path='/characters/add' element={<CharacterForm/>} />
-          <Route path='/characters/edit/:id' element={<CharacterForm/>} />
-          <Route path='/characters/delete/:id' element={<ConfirmCharacterDelete/>} />
+          
           <Route path='*' element={"Not found"} />
       </Routes>
 
@@ -67,13 +65,17 @@ function App() {
         <p>Loading...</p>
       ) : (
         //<pre>{JSON.stringify(data, null, 2)}</pre>
+        //<Route path='/characters' element={<CharacterList/>} />
+        //<Route path='/characters/add' element={<CharacterForm/>} />
+        //<Route path='/characters/edit/:id' element={<CharacterForm/>} />
+        //<Route path='/characters/delete/:id' element={<ConfirmCharacterDelete/>} />
         <div>
             <h2>Character List:</h2>
             {data && data.results && data.results.length > 0 ? (
             <ul>
               {data.results.map((character, index) => (
                 <li key={index}>
-                  <strong>Name:</strong> {character.name}, <strong>Weapon:</strong> {character.weapon},<strong>Vision:</strong> {character.vision}
+                  <strong>Name:</strong> {character.name}, <strong> Rarity:</strong> {character.rarity}, <strong> Weapon:</strong> {character.weapon},<strong> Vision:</strong> {character.vision}
                 </li>
               ))}
             </ul>

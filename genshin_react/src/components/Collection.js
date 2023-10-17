@@ -29,7 +29,7 @@ function Collection() {
         // TODO: do fetch requests here for characters, useEffect useState hooks
         <div className="container-fluid">
             
-            <h1 className="header-title">Genshin Impact Wish Simulator Collection</h1>
+            <h1 className="header-title">My Collection</h1>
             <div className="my-4">
             {characters.map(c=><div>{c.name}</div>)}           
             {/* <img className="character" src={process.env.PUBLIC_URL + "/faruzan.png"} alt="Genshin Banner"></img>
