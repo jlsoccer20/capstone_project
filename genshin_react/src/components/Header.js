@@ -7,10 +7,5 @@ export default function Header(){
         
         <h1 className="header-title"><span>Genshin Wish Simulator</span></h1>
         <h2>Jessica Link</h2>
-        <img className="header-image" src={process.env.PUBLIC_URL + "/GenshinImpact.jpg"} alt="Genshin Banner"></img>   
-
-
-        
-        
         </header>;
 }
