@@ -32,7 +32,7 @@ function Collection() {
             <h1 className="header-title">My Collection</h1>
             <div className="my-4">
             {characters.map(c=><div>{c.name}</div>)}           
-            {/* <img className="character" src={process.env.PUBLIC_URL + "/faruzan.png"} alt="Genshin Banner"></img>
+            <img className="character" src={process.env.PUBLIC_URL + "/faruzan.png"} alt="Genshin Banner"></img>
         <img className="character" src={process.env.PUBLIC_URL + "/hutao.png"} alt="Genshin Banner"></img>
         <img className="character" src={process.env.PUBLIC_URL + "/mona.webp"} alt="Genshin Banner"></img>
         <img className="character" src={process.env.PUBLIC_URL + "/noelle.png"} alt="Genshin Banner"></img>
@@ -55,7 +55,7 @@ function Collection() {
 
         <p></p>
         <img className="icon" src={process.env.PUBLIC_URL + "/primogemIcon.png"} alt="Genshin Banner"></img>
-        <img className="icon" src={process.env.PUBLIC_URL + "/GenshinIcon.png"} alt="Genshin Banner"></img>     */}
+        <img className="icon" src={process.env.PUBLIC_URL + "/GenshinIcon.png"} alt="Genshin Banner"></img>    
             </div>
         </div>
     );

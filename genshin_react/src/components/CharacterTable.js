@@ -6,6 +6,7 @@ function CharacterTable({ characters }) {
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Rarity</th>
                     <th>Weapon</th>
                     <th>Vision</th>
                     <th>&nbsp;</th>
@@ -15,12 +16,13 @@ function CharacterTable({ characters }) {
                 {characters.map(character => (
                     <tr key={character.id}>
                         <td>{character.name}</td>
+                        <td>{character.rarity}</td>
                         <td>{character.weapon}</td>
                         <td>{character.vision}</td>
                         
                         <td>
-                            <Link to={`./delete/${character.Id}`} className="btn btn-danger me-2">Delete</Link>
-                            <Link to={`./edit/${character.Id}`} className="btn btn-info">Edit</Link>
+                            <Link to={`./delete/${character.id}`} className="btn btn-danger me-2">Delete</Link>
+                            <Link to={`./edit/${character.id}`} className="btn btn-info">Edit</Link>
                         </td>
                     </tr>
                 ))}
