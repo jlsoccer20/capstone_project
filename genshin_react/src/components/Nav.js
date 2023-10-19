@@ -30,9 +30,9 @@ function Nav() {
                     <Link to='/contact' className="nav-link">Contact</Link>
                 </li>
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <Link to='/language' className="nav-link">Language</Link>
-                </li>
+                </li> */}
 
             </ul>
             
