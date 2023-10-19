@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import About from './components/About';
+import Banner from './components/Banner';
+import Contact from './components/Contact';
 import Characters from './components/Characters';
 import Collection from './components/Collection';
 import Header from './components/Header';
+import Wish from './components/Wish';
 
 import ConfirmCharacterDelete from "./components/ConfirmCharacterDelete";
 import CharacterForm from "./components/CharacterForm";
@@ -48,12 +51,14 @@ function App() {
         
         <Header />  
         <Routes>
-          <Route path='/' element={<Landing />} />
+          <Route path='/contact' element={<Contact />} />
           <Route path='/home' element={<Home />} />
-          <Route path='/about' element={<About />} />    
-          <Route path='/characters/' element={<Characters />} /> 
+          <Route path='/about' element={<About />} /> 
+          <Route path='/banner' element={<Banner />} />       
+          <Route path='/characters' element={<Characters />} /> 
           <Route path='/collection' element={<Collection />} />
           <Route path='/characters/:id' element={<Characters />} /> 
+          <Route path='/wish' element={<Wish />} /> 
 
           
           <Route path='*' element={"Not found"} />
