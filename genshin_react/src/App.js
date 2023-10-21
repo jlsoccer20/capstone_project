@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import DataContext from './context/DataContext';
+import LoadingContext from './context/LoadingContext';
+
 import Home from './components/Home';
 import About from './components/About';
 import Banner from './components/Banner';
@@ -24,13 +27,13 @@ const componentMap = {
   }
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null); // global variable "data"
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://gsi.fly.dev/characters');
+        const response = await fetch('https://gsi.fly.dev/characters?limit=100');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -46,7 +49,14 @@ function App() {
     fetchData();
   }, []);
 
-  return (
+  return ( //html
+
+    // use {} to insert javascript
+
+    // context allows to wrap other components, value accepts (js) objects
+    <LoadingContext.Provider value ={{loading, setLoading}}> 
+    <DataContext.Provider value ={{data, setData}}> 
+
     <Router>
         <Nav />
         
@@ -62,7 +72,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/wish' element={<Wish />} /> 
 
-          <Route path='/characters/:id' element={<Characters />} /> 
+          <Route path='/characters/:id' element={<CharacterInfo />} /> 
 
           <Route path='*' element={"Not found"} />
       </Routes>
@@ -94,6 +104,8 @@ function App() {
         )}
     </div> */}
     </Router>
+    </DataContext.Provider>
+    </LoadingContext.Provider>
   );
 }
 

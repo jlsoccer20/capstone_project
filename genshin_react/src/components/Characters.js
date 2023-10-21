@@ -2,7 +2,9 @@ import React from 'react'; // Import React
 
 function Characters() {
     // Define an array of character IDs
-    const characterIdsPngTooSmall = []
+    const characterIdsPngTooSmall = [
+        "kokomi",
+    ]
     const characterIdsPng = [
         "amber", 
         "bennett",
@@ -96,6 +98,9 @@ function Characters() {
     console.log("Character IDs png:", characterIdsPng);
     console.log("Character IDs webp:", characterIdsWebp);
 
+    // want to click on character cards
+    //handleCharacterCardClick(id);
+
     return (
         
         <div>
@@ -120,11 +125,12 @@ function Characters() {
                         className="characterCard"
                         src={imageUrl}
                         alt={`${characterIdPng} character card`}
+                        //onClick = {() => handleCharacterCardClick(id)} // reference, not immediate call
                     />
                 );
             })}
 
-            {characterIdsPngTooSmall.map((characterIdsPngTooSmall) => {
+            {/* {characterIdsPngTooSmall.map((characterIdsPngTooSmall) => {
                 const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdsPngTooSmall}Card.png`;
                 console.log("Image URL for", characterIdsPngTooSmall, ":", imageUrl);
                 return (
@@ -135,7 +141,7 @@ function Characters() {
                         alt={`${characterIdsPngTooSmall} character card`}
                     />
                 );
-            })}
+            })} */}
 
 
             {/* <p>Webps:</p> */}
@@ -149,11 +155,12 @@ function Characters() {
                         className="characterCard"
                         src={imageUrl}
                         alt={`${characterIdWebp} character card`}
+                        //onClick = {() => handleCharacterCardClick(id)}
                     />
                 );
             })}
 
-            {characterIdsWebpTooSmall.map((characterIdWebpTooSmall) => {
+            {/* {characterIdsWebpTooSmall.map((characterIdWebpTooSmall) => {
                 const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdWebpTooSmall}Card.webp`;
                 console.log("Image URL for", characterIdWebpTooSmall, ":", imageUrl);
                 return (
@@ -164,7 +171,7 @@ function Characters() {
                         alt={`${characterIdWebpTooSmall} character card`}
                     />
                 );
-            })}
+            })} */}
 
         </div>
     );
