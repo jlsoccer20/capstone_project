@@ -1,22 +1,22 @@
 // src/components/characters/id.js
-import React, { useContext, useEffect, useState } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import DataContext from './context/DataContext';
-import LoadingContext from './context/LoadingContext';
+import DataContext from "../context/DataContext";
+import LoadingContext from "../context/LoadingContext";
 
 import CharacterForm from "./CharacterForm";
 import CharacterList from "./CharacterList";
 import Landing from "./Landing";
 
-
 export default function CharacterInfo() {
+  const { data, setData } = useContext(DataContext); // pulled global variables
+  const { loading, setLoading } = useContext(LoadingContext);
 
-    const {data, setData} = useContext(DataContext); // pulled global variables
+  return (
 
-    return (
     <div className="App">
-      {/* <h1>API Data:</h1>
+      <h1>API Data:</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -39,14 +39,14 @@ export default function CharacterInfo() {
                 <p>No character data available.</p>
                 )}
         </div>
-        )} */}
+        )}
     </div>
 
-        // <div>
-        //     <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground3.png"} alt="Genshin Banner"></img>
-            
-        //     <h1>Character Info</h1>
- 
-        // </div>
-    );
+    // <div>
+    //     <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground3.png"} alt="Genshin Banner"></img>
+
+    //     <h1>Character Info</h1>
+
+    // </div>
+  );
 }
