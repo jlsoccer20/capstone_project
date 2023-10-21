@@ -29,23 +29,32 @@
 
 }
 
-/* This one is unused so far*/
 .header-image-home {
     width: 100%; /* Set the width of the image to 50% of its parent container */
-  height: auto;
+    height: auto;
 }
 
 .header-image {
-    width: 75%; /* Set the width of the image to 50% of its parent container */
-  height: auto;
+    width: 75%; 
+    height: auto;
 }
 
 .icon {
-    width: 5%; /* Set the width of the image to 50% of its parent container */
-  height: auto;
+    width: 5%; 
+    height: auto;
 }
 
 .character {
     width: 40%;
+    height: auto;
+}
+
+.characterCard {
+    width: 20%;
+    height: auto;
+}
+
+.characterCardAdjusted {
+    width: 17%;
     height: auto;
 }

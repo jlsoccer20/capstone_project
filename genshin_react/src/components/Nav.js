@@ -15,15 +15,15 @@ function Nav() {
                 </li>
 
                 <li className="nav-item">
-                    <Link to='/banner' className="nav-link">Banner</Link>
-                </li>
-
-                <li className="nav-item">
                     <Link to='/characters' className="nav-link">All Characters</Link>
                 </li>
 
                 <li className="nav-item">
                     <Link to='/collection' className="nav-link">My Collection</Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to='/banner' className="nav-link">Banner</Link>
                 </li>
 
                 <li className="nav-item">
