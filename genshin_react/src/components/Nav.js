@@ -4,11 +4,14 @@ function Nav() {
 
     return (
         <div className="d-flex align-items-center">
+            <img className="icon" src={process.env.PUBLIC_URL + "/primogemIcon.png"} alt="primogem"></img>
+            
             <ul className="nav my-4">
 
                 <li className="nav-item">
                     <Link to='/home' className="nav-link">Home</Link>
                 </li>
+                
 
                 <li className="nav-item">
                     <Link to='/about' className="nav-link">About</Link>
@@ -22,9 +25,9 @@ function Nav() {
                     <Link to='/collection' className="nav-link">My Collection</Link>
                 </li>
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <Link to='/banner' className="nav-link">Banner</Link>
-                </li>
+                </li> */}
 
                 <li className="nav-item">
                     <Link to='/contact' className="nav-link">Contact</Link>
@@ -35,8 +38,11 @@ function Nav() {
                 </li> */}
 
             </ul>
+            <img className="icon" src={process.env.PUBLIC_URL + "/primogemIcon.png"} alt="primogem"></img>
+            
             
                 <div className="d-flex flex-grow-1 justify-content-end">
+                    
                     <Link to='/wish' className="btn btn-primary">Make a Wish!</Link>
                 </div>
         </div>
