@@ -50,8 +50,6 @@ function Characters() {
 
     const characterIdsPng = [
          
-        
-        
     ];
 
     const characterIdsWebpTooSmall = [
@@ -104,7 +102,6 @@ function Characters() {
     ];
 
     console.log("Character IDs png:", characterIdsPng);
-    //console.log("Character IDs jpg:", characterIdsJpg);
     console.log("Character IDs webp:", characterIdsWebp);
 
     return (
@@ -144,21 +141,6 @@ function Characters() {
                 );
             })}
 
-            {/* <p>Jpgs:</p> */}
-
-            {/* These arent as pretty :(  */}
-            {/* {characterIdsJpg.map((characterIdJpg) => {
-                const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdJpg}Card.jpg`;
-                console.log("Image URL for", characterIdJpg, ":", imageUrl);
-                return (
-                    <img
-                        key={characterIdJpg}
-                        className="characterCard"
-                        src={imageUrl}
-                        alt={`${characterIdJpg} character card`}
-                    />
-                );
-            })} */}
 
             {/* <p>Webps:</p> */}
 
@@ -193,32 +175,3 @@ function Characters() {
 }
 
 export default Characters;
-
-
-{/*function Characters() {
-
-//     // Define an array of character IDs
-//     const characterIds = ["albedo", "amber", "baizhu", "chongyun", "diluc", "diona"];
-
-//     return (
-//         <div className="container-fluid">
-//             <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground5.jpg"} alt="Genshin Banner"></img>
-            
-            
-//             <h1>Characters</h1>
-//             <div className="my-4"> 
-//                 This is the character page with all characters.  
-//             </div>
-//             <img className="characterCard" src={process.env.PUBLIC_URL + "/characters/albedoCard.png"} alt="character card"></img>
-//             <img className="characterCardAdjusted" src={process.env.PUBLIC_URL + "/characters/amberCard.png"} alt="character card"></img>
-//             <img className="characterCard" src={process.env.PUBLIC_URL + "/characters/baizhuCard.webp"} alt="character card"></img>
-//             <img className="characterCard" src={process.env.PUBLIC_URL + "/characters/chongyunCard.webp"} alt="character card"></img>
-//             <img className="characterCardAdjusted" src={process.env.PUBLIC_URL + "/characters/dilucCard.png"} alt="character card"></img>
-//             <img className="characterCard" src={process.env.PUBLIC_URL + "/characters/dionaCard.png"} alt="character card"></img>
-        
-        
-//         </div>
-//     );
-// }
-
-// export default Characters;*/}
