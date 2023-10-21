@@ -50,11 +50,11 @@
 }
 
 .characterCard {
-    width: 15%;
+    width: 20%;
     height: auto;
 }
 
-.characterCardAdjusted {
+.characterCardMakeSmaller {
     width: 17%;
     height: auto;
 }

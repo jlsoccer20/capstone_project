@@ -2,7 +2,8 @@ import React from 'react'; // Import React
 
 function Characters() {
     // Define an array of character IDs
-    const characterIdsPngTooSmall = [
+    const characterIdsPngTooSmall = []
+    const characterIdsPng = [
         "amber", 
         "bennett",
         "xiangling",
@@ -45,14 +46,9 @@ function Characters() {
         "sucrose",
         "jean", 
         "venti"
-
-    ]
-
-    const characterIdsPng = [
-         
     ];
-
-    const characterIdsWebpTooSmall = [
+    const characterIdsWebpTooSmall = []
+    const characterIdsWebp = [
         "traveler",
 
         "thoma",
@@ -95,20 +91,20 @@ function Characters() {
         "kazuha",
         "wanderer",
         "xiao",
-    ]
-
-    const characterIdsWebp = [
-        
     ];
 
     console.log("Character IDs png:", characterIdsPng);
     console.log("Character IDs webp:", characterIdsWebp);
 
     return (
-        <div className="container-fluid">
+        
+        <div>
+            <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground7.webp"} alt="Genshin Banner"></img> 
+      
             <h1>Characters</h1>
             <div className="my-4"> 
                {/* This is the character page with all characters.*/}  
+               
             </div>
 
             {/* These look good */}

@@ -27,7 +27,7 @@ function Collection() {
     return (
         // similar to Agents, use list to populate display
         // TODO: do fetch requests here for characters, useEffect useState hooks
-        <div className="container-fluid">
+        <div>
 
 <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground6.webp"} alt="Genshin Banner"></img>
             
