@@ -2,113 +2,121 @@ import React from 'react'; // Import React
 
 function Characters() {
     // Define an array of character IDs
-    const characterIdsPng = [
-        "albedo", 
+    const characterIdsPngTooSmall = [
         "amber", 
-        "ayaka",
-
-        "ayato",    
-        "barbara",
-        "beidou",
         "bennett",
-        "diluc", 
+        "xiangling",
+        "diluc",
+        
+        "barbara", 
+        "xingqiu",
+        "targaglia",
+        "ayato",  
+        "yelan",
+        "kokomi", 
+        "mona",
 
         "diona", 
-        "fischl", 
+        "kaeya",
+        "ayaka",
         "ganyu", 
-        "gorou",
-
-        "itto",
-        "jean", 
-        "kaeya", 
-        "keching", 
-        "kokomi", 
-
+        "shenhe", 
+        
+        "beidou",
         "lisa",
-        "mona",
-        "ningguang", 
-        "noelle", 
-        "raiden", 
-
+        "fischl", 
         "razor",
         "sara",
-        "sayu",
-        "shenhe", 
-        "sucrose", 
-
-        "targaglia",
-        "venti",
-        "xiangling",
-        "xingqiu",
+        "raiden", 
+        "keching",
         "yaemiko",
 
-        "yelan",
-        "yunjin",          
-        "zhongli"
+        "ningguang", 
+        "noelle", 
+        
+        "gorou",
+        "yunjin",
+        "albedo",
+        "zhongli",
+        "itto",
+
+        
+        "sayu",
+        "sucrose",
+        "jean", 
+        "venti"
+
+    ]
+
+    const characterIdsPng = [
+         
+        
+        
     ];
 
-    const characterIdsJpg = [
-        "aloy", 
-        "candace",
-        "childe",
-        "nahida",
-        "shinobu",
-    ];
+    const characterIdsWebpTooSmall = [
+        "traveler",
 
-    const characterIdsWebp = [
-        "alhaitham",
-        "baizhu",
-        "chongyun",
-        "collei",
-        "cyno",
-
-        "dehya",
-        "dori",
-        "eula",
-        "faruzan",
-        "freminet",
-
-        "heizou",
-        "Hutao",
-        "kaveh",
-        "kazuha",
-        "kirara",
-
-        "klee", 
-        "layla",
-        "lynette",
+        "thoma",
+        "yanfei",
         "lyney",
-        "mika",
+        "xinyan",
+        "dehya",
+        "Hutao",
+        "klee", 
 
+        "candace",
         "neuvillette",
         "nilou",
-        "qiqi",
-        "rosaria",
-        "thoma",
 
+        "chongyun",
+        "aloy",
+        "layla",
+        "mika",
+        "rosaria",
+        "freminet",
+        "eula",
+        "qiqi",
+        
+        "dori",
+        "cyno",
+        "shinobu",
+
+        "kaveh",
+        "yaoyao",
+        "kirara",
+        "collei",
+        "alhaitham",
+        "baizhu",
+        "nahida",
         "tighnari",
-        "traveler",
+
+        "faruzan",
+        "lynette",
+        "heizou",
+        "kazuha",
         "wanderer",
         "xiao",
-        "xinyan",
-        "yanfei",
-        "yaoyao"
+    ]
+
+    const characterIdsWebp = [
+        
     ];
 
     console.log("Character IDs png:", characterIdsPng);
-    console.log("Character IDs jpg:", characterIdsJpg);
+    //console.log("Character IDs jpg:", characterIdsJpg);
     console.log("Character IDs webp:", characterIdsWebp);
 
     return (
         <div className="container-fluid">
             <h1>Characters</h1>
             <div className="my-4"> 
-               This is the character page with all characters.  
+               {/* This is the character page with all characters.*/}  
             </div>
 
             {/* These look good */}
 
-            <p>Pngs:</p>
+            {/*<p>Pngs:</p> */}
 
             {characterIdsPng.map((characterIdPng) => {
                 const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdPng}Card.png`;
@@ -123,10 +131,23 @@ function Characters() {
                 );
             })}
 
-            <p>Jpgs:</p>
+            {characterIdsPngTooSmall.map((characterIdsPngTooSmall) => {
+                const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdsPngTooSmall}Card.png`;
+                console.log("Image URL for", characterIdsPngTooSmall, ":", imageUrl);
+                return (
+                    <img
+                        key={characterIdsPngTooSmall}
+                        className="characterCardMakeBigger"
+                        src={imageUrl}
+                        alt={`${characterIdsPngTooSmall} character card`}
+                    />
+                );
+            })}
+
+            {/* <p>Jpgs:</p> */}
 
             {/* These arent as pretty :(  */}
-            {characterIdsJpg.map((characterIdJpg) => {
+            {/* {characterIdsJpg.map((characterIdJpg) => {
                 const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdJpg}Card.jpg`;
                 console.log("Image URL for", characterIdJpg, ":", imageUrl);
                 return (
@@ -137,9 +158,9 @@ function Characters() {
                         alt={`${characterIdJpg} character card`}
                     />
                 );
-            })}
+            })} */}
 
-            <p>Webps:</p>
+            {/* <p>Webps:</p> */}
 
             {characterIdsWebp.map((characterIdWebp) => {
                 const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdWebp}Card.webp`;
@@ -150,6 +171,19 @@ function Characters() {
                         className="characterCard"
                         src={imageUrl}
                         alt={`${characterIdWebp} character card`}
+                    />
+                );
+            })}
+
+            {characterIdsWebpTooSmall.map((characterIdWebpTooSmall) => {
+                const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdWebpTooSmall}Card.webp`;
+                console.log("Image URL for", characterIdWebpTooSmall, ":", imageUrl);
+                return (
+                    <img
+                        key={characterIdWebpTooSmall}
+                        className="characterCardMakeBigger"
+                        src={imageUrl}
+                        alt={`${characterIdWebpTooSmall} character card`}
                     />
                 );
             })}
