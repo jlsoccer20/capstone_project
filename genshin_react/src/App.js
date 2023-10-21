@@ -9,6 +9,7 @@ import Characters from './components/Characters';
 import Collection from './components/Collection';
 import Header from './components/Header';
 import Wish from './components/Wish';
+import CharacterInfo from './components/CharacterInfo';
 
 import ConfirmCharacterDelete from "./components/ConfirmCharacterDelete";
 import CharacterForm from "./components/CharacterForm";
@@ -51,20 +52,23 @@ function App() {
         
         <Header />  
         <Routes>
-          <Route path='/contact' element={<Contact />} />
+          
+          <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} /> 
           <Route path='/banner' element={<Banner />} />       
           <Route path='/characters' element={<Characters />} /> 
           <Route path='/collection' element={<Collection />} />
-          <Route path='/characters/:id' element={<Characters />} /> 
+          <Route path='/contact' element={<Contact />} />
           <Route path='/wish' element={<Wish />} /> 
+
+          <Route path='/characters/:id' element={<Characters />} /> 
 
           
           <Route path='*' element={"Not found"} />
       </Routes>
 
-    <div className="App">
+    {/* <div className="App">
       <h1>API Data:</h1>
       {loading ? (
         <p>Loading...</p>
@@ -89,7 +93,7 @@ function App() {
                 )}
         </div>
         )}
-    </div>
+    </div> */}
     </Router>
   );
 }

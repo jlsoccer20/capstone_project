@@ -10,7 +10,7 @@ function Characters() {
             {/* <img className="header-image" src={process.env.PUBLIC_URL + "/GenshinIcon.png"} alt="Genshin Banner"></img>
              */}
                            
-                
+                This is the character page with all characters.  
             </div>
         </div>
     );

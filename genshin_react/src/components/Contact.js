@@ -9,8 +9,7 @@ export default function Contact() {
             <h2>Jessica Link</h2>
             <div>Email: jlink@dev-10.com</div>
             <div>LinkedIn: https://www.linkedin.com/in/jessica-m-link/</div>
-            
-            <p>This project implements many topics covered in the Dev10 Academy 2023 cohort. </p>
+            <p></p>
         </div>
     );
 }
