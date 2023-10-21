@@ -1,180 +1,61 @@
-import React from 'react'; // Import React
+import React, { useContext, useState, useEffect } from "react";
+
+import DataContext from "../context/DataContext";
+import LoadingContext from "../context/LoadingContext";
 
 function Characters() {
-    // Define an array of character IDs
-    const characterIdsPngTooSmall = [
-        "kokomi",
-    ]
-    const characterIdsPng = [
-        "amber", 
-        "bennett",
-        "xiangling",
-        "diluc",
-        
-        "barbara", 
-        "xingqiu",
-        "targaglia",
-        "ayato",  
-        "yelan",
-        "kokomi", 
-        "mona",
+  const { data, setData } = useContext(DataContext); // global variables
+  const { loading, setLoading } = useContext(LoadingContext);
+  const [characterCardNames, setCharacterCardNames] = useState([]);
 
-        "diona", 
-        "kaeya",
-        "ayaka",
-        "ganyu", 
-        "shenhe", 
-        
-        "beidou",
-        "lisa",
-        "fischl", 
-        "razor",
-        "sara",
-        "raiden", 
-        "keching",
-        "yaemiko",
+  useEffect(() => {
+    if (data != null) {
+      let tempArray = [];
 
-        "ningguang", 
-        "noelle", 
-        
-        "gorou",
-        "yunjin",
-        "albedo",
-        "zhongli",
-        "itto",
+      for (let i = 0; i < data.results.length; i++) {
+        //console.log(data.results[i].name.toLowerCase()) // waits until page is loaded
 
-        
-        "sayu",
-        "sucrose",
-        "jean", 
-        "venti"
-    ];
-    const characterIdsWebpTooSmall = []
-    const characterIdsWebp = [
-        "traveler",
+        //js mdn string methods
+        tempArray[i] = data.results[i].name.toLowerCase();
+      }
+      console.log(characterCardNames);
+      setCharacterCardNames(tempArray);
+    }
+  }, [data]);
 
-        "thoma",
-        "yanfei",
-        "lyney",
-        "xinyan",
-        "dehya",
-        "Hutao",
-        "klee", 
+  // want to click on character cards
+  //handleCharacterCardClick(id);
 
-        "candace",
-        "neuvillette",
-        "nilou",
+  return (
+    <div>
+      <img
+        className="header-image-home"
+        src={process.env.PUBLIC_URL + "/genshinbackground7.webp"}
+        alt="Genshin Banner"
+      ></img>
 
-        "chongyun",
-        "aloy",
-        "layla",
-        "mika",
-        "rosaria",
-        "freminet",
-        "eula",
-        "qiqi",
-        
-        "dori",
-        "cyno",
-        "shinobu",
+      <h1>Characters</h1>
 
-        "kaveh",
-        "yaoyao",
-        "kirara",
-        "collei",
-        "alhaitham",
-        "baizhu",
-        "nahida",
-        "tighnari",
+      {characterCardNames.map((characterCardName) => {
+        const imageUrl =
+          process.env.PUBLIC_URL + `/characters/${characterCardName}Card.png`;
+        //console.log("Image URL for", characterCardName, ":", imageUrl);
+        return (
+          <img
+            key={characterCardName}
+            className="characterCard"
+            src={imageUrl}
+            alt={`${characterCardName} character card`}
+            //onClick = {() => handleCharacterCardClick(id)}
+          />
+        );
+      })}
 
-        "faruzan",
-        "lynette",
-        "heizou",
-        "kazuha",
-        "wanderer",
-        "xiao",
-    ];
-
-    console.log("Character IDs png:", characterIdsPng);
-    console.log("Character IDs webp:", characterIdsWebp);
-
-    // want to click on character cards
-    //handleCharacterCardClick(id);
-
-    return (
-        
-        <div>
-            <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground7.webp"} alt="Genshin Banner"></img> 
-      
-            <h1>Characters</h1>
-            <div className="my-4"> 
-               {/* This is the character page with all characters.*/}  
-               
-            </div>
-
-            {/* These look good */}
-
-            {/*<p>Pngs:</p> */}
-
-            {characterIdsPng.map((characterIdPng) => {
-                const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdPng}Card.png`;
-                console.log("Image URL for", characterIdPng, ":", imageUrl);
-                return (
-                    <img
-                        key={characterIdPng}
-                        className="characterCard"
-                        src={imageUrl}
-                        alt={`${characterIdPng} character card`}
-                        //onClick = {() => handleCharacterCardClick(id)} // reference, not immediate call
-                    />
-                );
-            })}
-
-            {/* {characterIdsPngTooSmall.map((characterIdsPngTooSmall) => {
-                const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdsPngTooSmall}Card.png`;
-                console.log("Image URL for", characterIdsPngTooSmall, ":", imageUrl);
-                return (
-                    <img
-                        key={characterIdsPngTooSmall}
-                        className="characterCardMakeBigger"
-                        src={imageUrl}
-                        alt={`${characterIdsPngTooSmall} character card`}
-                    />
-                );
-            })} */}
-
-
-            {/* <p>Webps:</p> */}
-
-            {characterIdsWebp.map((characterIdWebp) => {
-                const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdWebp}Card.webp`;
-                console.log("Image URL for", characterIdWebp, ":", imageUrl);
-                return (
-                    <img
-                        key={characterIdWebp}
-                        className="characterCard"
-                        src={imageUrl}
-                        alt={`${characterIdWebp} character card`}
-                        //onClick = {() => handleCharacterCardClick(id)}
-                    />
-                );
-            })}
-
-            {/* {characterIdsWebpTooSmall.map((characterIdWebpTooSmall) => {
-                const imageUrl = process.env.PUBLIC_URL + `/characters/${characterIdWebpTooSmall}Card.webp`;
-                console.log("Image URL for", characterIdWebpTooSmall, ":", imageUrl);
-                return (
-                    <img
-                        key={characterIdWebpTooSmall}
-                        className="characterCardMakeBigger"
-                        src={imageUrl}
-                        alt={`${characterIdWebpTooSmall} character card`}
-                    />
-                );
-            })} */}
-
-        </div>
-    );
+      <div className="my-4">
+        {/* This is the character page with all characters.*/}
+      </div>
+    </div>
+  );
 }
 
 export default Characters;
