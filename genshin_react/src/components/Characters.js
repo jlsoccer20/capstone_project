@@ -23,7 +23,7 @@ function Characters() {
     }
   }, [data]);
 
-  // want to click on character cards
+  // TODO: want to click on character cards, adjust image sizes, navigate to new character info page
   //handleCharacterCardClick(id);
 
   return (
