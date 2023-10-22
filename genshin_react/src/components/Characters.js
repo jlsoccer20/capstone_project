@@ -60,6 +60,7 @@ function Characters() {
             src={imageUrl}
             alt={`${characterCardName} character card`}
             onClick = {() => handleCharacterCardClick(characterCardName)}
+            //onMouseOver={}
             
 
           />

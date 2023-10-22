@@ -52,7 +52,15 @@
 .characterCard {
     max-width: 20%;
     height: auto;
+    
 }
+
+.characterCard:hover{
+    cursor: pointer;
+}
+
+
+
 
 .characterCardMakeSmaller {
     width: 17%;
