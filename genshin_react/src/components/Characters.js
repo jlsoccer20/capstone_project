@@ -54,16 +54,18 @@ function Characters() {
           process.env.PUBLIC_URL + `/characters/${characterCardName}Card.png`;
         //console.log("Image URL for", characterCardName, ":", imageUrl);
         return (
+          <div class="wrapper">
           <img
             key={characterCardName}
             className="characterCard"
             src={imageUrl}
             alt={`${characterCardName} character card`}
+            
             onClick = {() => handleCharacterCardClick(characterCardName)}
             //onMouseOver={}
             
 
-          />
+          /></div>
         );
       })}
 

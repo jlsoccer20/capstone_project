@@ -45,18 +45,32 @@
 }
 
 .character {
-    width: 40%;
+    width: 80%;
     height: auto;
 }
 
-.characterCard {
-    max-width: 20%;
-    height: auto;
+.wrapper{
+    display:inline-block;
+    max-width: 115px;
+    max-height: 130px;
+    padding: 1%;
     
 }
 
+.characterCard{
+    width: 130px;
+    height: 130px;
+    
+    cursor: url("../../public/mousePointer.png"),  auto;
+    
+}
+
+
 .characterCard:hover{
-    cursor: pointer;
+    /* cursor:url(http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif), auto; */
+    width:140px;
+    height:140px;
+    cursor:url("../../public/mouseHover.png"),  auto;
 }
 
 
