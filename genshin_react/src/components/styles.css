@@ -51,9 +51,10 @@
 
 .wrapper{
     display:inline-block;
-    max-width: 115px;
-    max-height: 130px;
-    padding: 1%;
+    overflow: hidden;
+    max-width: 170px;
+    max-height: 170px;
+    padding: 20px;
     
 }
 
