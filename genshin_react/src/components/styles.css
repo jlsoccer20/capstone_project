@@ -60,20 +60,19 @@
 .characterCard{
     width: 130px;
     height: 130px;
-    
-    cursor: url("../../public/mousePointer.png"),  auto;
-    
+
 }
 
 
 .characterCard:hover{
-    /* cursor:url(http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif), auto; */
+    /* cursor:url(http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif), auto; 
+    cursor: url("../../public/mousePointer.png"),  auto;
+    cursor:url("../../public/mouseHover.png"),  auto;*/
     width:140px;
     height:140px;
-    cursor:url("../../public/mouseHover.png"),  auto;
+    cursor:pointer;
+    
 }
-
-
 
 
 .characterCardMakeSmaller {
