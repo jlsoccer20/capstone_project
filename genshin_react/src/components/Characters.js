@@ -7,24 +7,33 @@ function Characters() {
   const { data, setData } = useContext(DataContext); // global variables
   const { loading, setLoading } = useContext(LoadingContext);
   const [characterCardNames, setCharacterCardNames] = useState([]);
+  const [characterCardIds, setCharacterCardIds] = useState([]);
 
   useEffect(() => {
     if (data != null) {
-      let tempArray = [];
+      let tempArrayNames = [];
+      let tempArrayIds = [];
 
       for (let i = 0; i < data.results.length; i++) {
         //console.log(data.results[i].name.toLowerCase()) // waits until page is loaded
+        //console.log(data.results[i].id)
 
         //js mdn string methods
-        tempArray[i] = data.results[i].name.toLowerCase();
+        tempArrayNames[i] = data.results[i].name.toLowerCase();
+        tempArrayIds[i] = data.results[i].id;
       }
-      console.log(characterCardNames);
-      setCharacterCardNames(tempArray);
+      //console.log(characterCardNames);
+      setCharacterCardNames(tempArrayNames);
+      setCharacterCardIds(tempArrayIds);
     }
   }, [data]);
 
   // TODO: want to click on character cards, adjust image sizes, navigate to new character info page
-  //handleCharacterCardClick(id);
+  
+  function handleCharacterCardClick(characterCardName){
+    console.log("Character name: " + characterCardName)
+  };
+  // + ", id: " + id
 
   return (
     <div>
@@ -46,7 +55,9 @@ function Characters() {
             className="characterCard"
             src={imageUrl}
             alt={`${characterCardName} character card`}
-            //onClick = {() => handleCharacterCardClick(id)}
+            onClick = {() => handleCharacterCardClick(characterCardName)}
+            
+
           />
         );
       })}
