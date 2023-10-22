@@ -73,7 +73,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/wish" element={<Wish />} />
 
-            <Route path="/characters/:id" element={<CharacterInfo />} />
+            <Route path="/characters/:name" element={<CharacterInfo />} />
 
             <Route path="*" element={"Not found"} />
           </Routes>

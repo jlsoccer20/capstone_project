@@ -16,6 +16,7 @@ export default function CharacterInfo() {
   return (
 
     <div className="App">
+
       <h1>API Data:</h1>
       {loading ? (
         <p>Loading...</p>

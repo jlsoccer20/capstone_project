@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import DataContext from "../context/DataContext";
 import LoadingContext from "../context/LoadingContext";
@@ -32,6 +33,9 @@ function Characters() {
   
   function handleCharacterCardClick(characterCardName){
     console.log("Character name: " + characterCardName)
+    //<Link to='/characters/${characterCardName}' className="nav-link">CharacterCard</Link>
+    window.location = "http://localhost:3000/characters/" + characterCardName;
+
   };
   // + ", id: " + id
 
