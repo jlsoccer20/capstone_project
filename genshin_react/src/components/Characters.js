@@ -48,7 +48,7 @@ function Characters() {
       ></img>
 
       <h1>Characters</h1>
-
+        <div class="container">
       {characterCardNames.map((characterCardName) => {
         const imageUrl =
           process.env.PUBLIC_URL + `/characters/${characterCardName}Card.png`;
@@ -68,6 +68,7 @@ function Characters() {
           /></div>
         );
       })}
+      </div>
 
       <div className="my-4">
         {/* This is the character page with all characters.*/}
