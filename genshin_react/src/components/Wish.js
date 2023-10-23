@@ -12,27 +12,18 @@ export default function Wish() {
 
   function makeAWish() {
     console.log("gewished!");
-    console.log();
-    let i = Math.floor(Math.random()*data.results.length); //51 characters, index 0 to 50
+    let i = Math.floor(Math.random() * data.results.length); //51 characters, index 0 to 50
     displayCharacterImage(data.results[i].name);
   }
 
-
   function displayCharacterImage(characterName) {
+    //have HTML for image, want to display using a method call after pressing wish button
     console.log(characterName);
-    <img
-      className="characterWish"
-      src={
-        process.env.PUBLIC_URL +
-        `/characterInfo/Character_${characterName}_Full_Wish.webp`
-      }
-      alt="Genshin Banner"
-    ></img>;
   }
 
-  <Link to="/wish" className="btn btn-primary">
-    Make a Wish!
-  </Link>;
+//   <Link to="/wish" className="btn btn-primary">
+//     Make a Wish!!
+//   </Link>;
 
   return (
     <div>
@@ -41,9 +32,9 @@ export default function Wish() {
         src={process.env.PUBLIC_URL + "/wish.webp"}
         alt="Genshin Banner"
       ></img>
-
       <h1>Wishing Page!</h1>
       <p>Isn't this what we came here for? Let's start wishing! Good luck!</p>
+      <div class="centerButton">
       <div className="d-flex flex-grow-1 justify-content-end">
         <button
           type="submit"
@@ -53,6 +44,18 @@ export default function Wish() {
           Make a Wish!
         </button>
       </div>
+      </div>
+      
+      <img
+        className="characterWish"
+        src={data &&
+            data.results &&
+          process.env.PUBLIC_URL +
+          `/characterInfo/Character_${data.results[5].name}_Full_Wish.webp`
+        }
+        alt="Genshin Banner"
+      ></img>
+      ;
     </div>
   );
 }
