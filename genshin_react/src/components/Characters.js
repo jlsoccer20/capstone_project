@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import DataContext from "../context/DataContext";
 import LoadingContext from "../context/LoadingContext";
@@ -9,6 +9,7 @@ function Characters() {
   const { loading, setLoading } = useContext(LoadingContext);
   const [characterCardNames, setCharacterCardNames] = useState([]);
   const [characterCardIds, setCharacterCardIds] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data != null) {
@@ -29,14 +30,13 @@ function Characters() {
     }
   }, [data]);
 
-  // TODO: want to click on character cards, adjust image sizes, navigate to new character info page
-  
-  function handleCharacterCardClick(characterCardName){
-    console.log("Character name: " + characterCardName)
-    //<Link to='/characters/${characterCardName}' className="nav-link">CharacterCard</Link>
-    window.location = "http://localhost:3000/characters/" + characterCardName;
+  // want to click on character cards, adjust image sizes, navigate to new character info page
 
-  };
+  function handleCharacterCardClick(character) {
+    console.log("Character name: " + character.name);
+    //<Link to='/characters/${characterCardName}' className="nav-link">CharacterCard</Link>
+    navigate("/characters/" + character.name, { state: character }); //passing character as state
+  }
   // + ", id: " + id
 
   return (
@@ -48,26 +48,26 @@ function Characters() {
       ></img>
 
       <h1>Characters</h1>
-        <div class="container">
-      {characterCardNames.map((characterCardName) => {
-        const imageUrl =
-          process.env.PUBLIC_URL + `/characters/${characterCardName}Card.png`;
-        //console.log("Image URL for", characterCardName, ":", imageUrl);
-        return (
-          <div class="wrapper">
-          <img
-            key={characterCardName}
-            className="characterCard"
-            src={imageUrl}
-            alt={`${characterCardName} character card`}
-            
-            onClick = {() => handleCharacterCardClick(characterCardName)}
-            //onMouseOver={}
-            
-
-          /></div>
-        );
-      })}
+      <div class="container">
+        {data &&
+          data.results &&
+          data.results.map((character) => {
+            const imageUrl =
+              process.env.PUBLIC_URL + `/characters/${character.name}Card.png`;
+            //console.log("Image URL for", characterCardName, ":", imageUrl);
+            return (
+              <div class="wrapper">
+                <img
+                  key={character.name}
+                  className="characterCard"
+                  src={imageUrl}
+                  alt={`${character.name} character card`}
+                  onClick={() => handleCharacterCardClick(character)}
+                  //onMouseOver={}
+                />
+              </div>
+            );
+          })}
       </div>
 
       <div className="my-4">

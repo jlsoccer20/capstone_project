@@ -49,6 +49,21 @@
     height: auto;
 }
 
+.characterInfoGame {
+    width: 30%;
+    max-height: 70%;
+}
+
+.characterInfoCard {
+    height: 10%;
+    max-width: 40%;
+}
+
+.characterWish {
+    max-height: 90%;
+    max-width: 90%
+}
+
 .container{
     
     width: 100%;

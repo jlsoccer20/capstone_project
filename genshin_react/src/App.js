@@ -40,6 +40,20 @@ function App() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const jsonData = await response.json();
+        //jsonData.results.sort((a,b)=>a.vision.localeCompare(b.vision));
+        jsonData.results.sort((a, b) => {
+
+            let visionCompare = a.vision.localeCompare(b.vision);
+        
+            if(visionCompare === 0) {
+        
+                return a.rarity.localeCompare(b.rarity);
+    
+            }
+
+            return visionCompare;
+        });
+
         setData(jsonData);
         setLoading(false);
       } catch (error) {
@@ -60,9 +74,10 @@ function App() {
     <LoadingContext.Provider value={{ loading, setLoading }}>
       <DataContext.Provider value={{ data, setData }}>
         <Router>
-          <Nav />
+          
 
           <Header />
+          <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
