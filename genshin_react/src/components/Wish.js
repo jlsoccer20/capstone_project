@@ -55,7 +55,7 @@ export default function Wish() {
         }
         alt="Genshin Banner"
       ></img>
-      ;
+      
     </div>
   );
 }
