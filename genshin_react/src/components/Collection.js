@@ -31,7 +31,7 @@ function Collection() {
         alt="Genshin Banner"
       ></img>
 
-      <h1>My Collection</h1>
+      <h1 class="padme">My Collection</h1>
       {/* <div className="my-4">
         {characters.map((c) => (
           <div>{c.name}</div>

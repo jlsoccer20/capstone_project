@@ -69,8 +69,11 @@
     align-items: center;
     margin:auto;
 
-    
+}
 
+.padme{
+    padding-left: 2%;
+    padding-right: 8%;
 }
 
 .centerWishImage{

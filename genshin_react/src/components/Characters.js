@@ -47,7 +47,7 @@ function Characters() {
         alt="Genshin Banner"
       ></img>
 
-      <h1>Characters</h1>
+      <h1 class="padme">Characters</h1>
       <div class="container">
         {data &&
           data.results &&

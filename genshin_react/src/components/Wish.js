@@ -45,8 +45,8 @@ export default function Wish() {
         src={process.env.PUBLIC_URL + "/wish.webp"}
         alt="Genshin Banner"
       ></img>
-      <h1>Wishing Page!</h1>
-      <p>Isn't this what we came here for? Let's start wishing! Good luck!</p>
+      <h1 class="padme">Wishing Page!</h1>
+      <p class="padme">Isn't this what we came here for? Let's start wishing! Good luck!</p>
 
 
       <div class="centerButton">

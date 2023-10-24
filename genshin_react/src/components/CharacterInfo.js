@@ -24,7 +24,7 @@ export default function CharacterInfo() {
         //<Route path='/characters/add' element={<CharacterForm/>} />
         //<Route path='/characters/edit/:id' element={<CharacterForm/>} />
         //<Route path='/characters/delete/:id' element={<ConfirmCharacterDelete/>} />
-        <div>
+        <div class="padme">
           <h1>{state.name}</h1>
           <h3>Vision: {state.vision}</h3>
           <h3>Rarity: {state.rarity}</h3>
@@ -32,7 +32,7 @@ export default function CharacterInfo() {
 
           {/* <img className="characterInfo" src={process.env.PUBLIC_URL + `/characterInfo/${state.name}Info.webp`} alt="Genshin Banner"></img>  */}
 
-          <img
+          <img 
             className="characterInfoGame"
             src={
               process.env.PUBLIC_URL +

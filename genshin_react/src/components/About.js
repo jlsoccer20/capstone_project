@@ -4,6 +4,8 @@ export default function About() {
     return (
         <div>
             <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground.jpg_large"} alt="Genshin Banner"></img>
+        
+        <div  class="padme">
 
             <h1>About Genshin Wish Simulator</h1>
 
@@ -173,6 +175,6 @@ export default function About() {
             </p>
 
             </p>           
-        </div>
+        </div></div>
     );
 }
