@@ -60,8 +60,9 @@
 }
 
 .characterWish {
-    max-height: 90%;
-    max-width: 90%;
+    
+    height: 90%;
+    width: 90%;
     margin-top: 60px;
     padding: 20px;
     
@@ -73,11 +74,11 @@
 }
 
 .centerWishImage{
-    padding: 2%;
+    padding: 5%;
     margin:auto;
     width: 80%;
-    height: 80%;
-    
+    min-height: 500px;  
+    justify-content: center;  
 }
 
 .container{
@@ -126,6 +127,30 @@
     
 }
 
+.nav-item{
+    font-size: 150%;
+    padding: 10px;
+    margin:auto;
+}
+
+.navBar{
+    
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    
+    
+}
+
+.navBar ul{
+    
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 10px;
+    justify-content: center;
+
+}
 
 .characterCardMakeSmaller {
     width: 17%;
@@ -136,3 +161,5 @@
     width: 20%;
     height: auto;
 }
+
+
