@@ -19,6 +19,11 @@ export default function Wish() {
   function displayCharacterImage(characterName) {
     //have HTML for image, want to display using a method call after pressing wish button
     console.log(characterName);
+    if (characterName == "Traveller (female)" || characterName == "Traveller (male)"){
+        console.log(characterName + " is not available.");
+        makeAWish();
+        return;
+    }
     var characterImage = document.getElementById("wish");
     var link = data &&
         data.results &&
@@ -45,7 +50,7 @@ export default function Wish() {
 
 
       <div class="centerButton">
-      <div className="d-flex flex-grow-1 justify-content-end">
+      
         <button
           type="submit"
           onClick={() => makeAWish()}
@@ -53,10 +58,10 @@ export default function Wish() {
         >
           Make a Wish!
         </button>
-      </div>
+     
       </div>
 
-
+<div class="centerWishImage">
       <img
             className="characterWish"
             id="wish"
@@ -67,7 +72,7 @@ export default function Wish() {
             alt="Wish Result Image"
         ></img>
       
-      
+      </div> 
       
     </div>
   );

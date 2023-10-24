@@ -64,9 +64,20 @@
     max-width: 90%;
     margin-top: 60px;
     padding: 20px;
-    display:absolute;
+    
     align-items: center;
+    margin:auto;
 
+    
+
+}
+
+.centerWishImage{
+    padding: 2%;
+    margin:auto;
+    width: 80%;
+    height: 80%;
+    
 }
 
 .container{
