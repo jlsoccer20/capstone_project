@@ -49,6 +49,7 @@ function Characters() {
 
       <h1 class="padme">Characters</h1>
       <div class="container">
+        <div class="centerCards">
         {data &&
           data.results &&
           data.results.map((character) => {
@@ -56,6 +57,8 @@ function Characters() {
               process.env.PUBLIC_URL + `/characters/${character.name}Card.png`;
             //console.log("Image URL for", characterCardName, ":", imageUrl);
             return (
+
+                
               <div class="wrapper">
                 <img
                   key={character.name}
@@ -68,6 +71,7 @@ function Characters() {
               </div>
             );
           })}
+      </div>
       </div>
 
       <div className="my-4">
