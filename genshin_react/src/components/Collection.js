@@ -1,25 +1,43 @@
-import { useEffect, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import DataContext from "../context/DataContext";
+import LoadingContext from "../context/LoadingContext";
+
+export const collectionList = [];
 
 function Collection() {
   const [characters, setCharacters] = useState([]); // setting state to empty array
+  const { data, setData } = useContext(DataContext); // global variables
+  const { loading, setLoading } = useContext(LoadingContext);
+  const [characterCardNames, setCharacterCardNames] = useState([]);
+  const [characterCardIds, setCharacterCardIds] = useState([]);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("https://gsi.fly.dev/characters");
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const jsonData = await response.json();
-        setCharacters(jsonData.results);
-        console.log(jsonData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
+  function handleCharacterCardClick(character) {
+    console.log("Character name: " + character.name);
+    //<Link to='/characters/${characterCardName}' className="nav-link">CharacterCard</Link>
+    navigate("/characters/" + character.name, { state: character }); //passing character as state
+  }
 
-    fetchData();
-  }, []);
+
+//   useEffect(() => {
+//     async function fetchData() {
+//       try {
+//         const response = await fetch("https://gsi.fly.dev/characters");
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         const jsonData = await response.json();
+//         setCharacters(jsonData.results);
+//         console.log(jsonData);
+//       } catch (error) {
+//         console.error("Error fetching data:", error);
+//       }
+//     }
+
+//     fetchData();
+//   }, []);
 
   return (
     // similar to Agents, use list to populate display
@@ -31,101 +49,44 @@ function Collection() {
         alt="Genshin Banner"
       ></img>
 
-      <h1 class="padme">My Collection</h1>
+      <h1 className="padme">My Collection</h1>
       {/* <div className="my-4">
         {characters.map((c) => (
           <div>{c.name}</div>
         ))}
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/faruzan.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/hutao.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/mona.webp"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/noelle.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/shenhe.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/sucrose.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/wanderer.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/xiao.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/rosaria.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/ganyu.png"}
-          alt="Genshin Banner"
-        ></img>
-
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/ayaka.jpg"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/childe.jpg"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/diona.jpg"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/eula.jpg"}
-          alt="Genshin Banner"
-        ></img>
-
-        <img
-          className="character"
-          src={process.env.PUBLIC_URL + "/qiqi.jpg"}
-          alt="Genshin Banner"
-        ></img>
-
-        <p></p>
-        <img
-          className="icon"
-          src={process.env.PUBLIC_URL + "/primogemIcon.png"}
-          alt="Genshin Banner"
-        ></img>
-        <img
-          className="icon"
-          src={process.env.PUBLIC_URL + "/GenshinIcon.png"}
-          alt="Genshin Banner"
-        ></img>
+        
       </div> */}
+
+
+      <div className="collection">
+      <div className="container">
+        <div className="centerCards">
+        {data &&
+          data.results &&
+          data.results.map((character) => {
+            const imageUrl =
+              process.env.PUBLIC_URL + `/characters/${character.name}Card.png`;
+            //console.log("Image URL for", characterCardName, ":", imageUrl);
+            return (
+
+                
+              <div className="wrapper">
+                <img
+                  key={character.name}
+                  className="characterCard"
+                  src={imageUrl}
+                  alt={`${character.name} character card`}
+                  onClick={() => handleCharacterCardClick(character)}
+                  //onMouseOver={}
+                />
+              </div>
+            );
+          })}
+      </div>
+      </div>
+        
+
+      </div>
     </div>
   );
 }

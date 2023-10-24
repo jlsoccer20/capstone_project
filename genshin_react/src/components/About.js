@@ -5,7 +5,7 @@ export default function About() {
         <div>
             <img className="header-image-home" src={process.env.PUBLIC_URL + "/genshinbackground.jpg_large"} alt="Genshin Banner"></img>
         
-        <div  class="padme">
+        <div  className="padme">
 
             <h1>About Genshin Wish Simulator</h1>
 

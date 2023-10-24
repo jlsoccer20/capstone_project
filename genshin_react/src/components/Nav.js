@@ -3,20 +3,8 @@ import { Link } from "react-router-dom";
 function Nav() {
 
     return (
-    //     <div class="nav-bar">
-    //     <ul>
-    //         <li><a href="Home.html">Home</a></li>
-    //         <li><a href="AboutMe.html">About me</a></li>
-    //         <li><a href="Games.html">Games</a></li>
-    //         <li><a href="Tilesets.html">Tilesets </a></li>
-    //         <li><a href="Scripts.html">Scripts</a></li>
-    //         <li><a href="Other.html">Other</a></li>
-    //     </ul>
-    // </div>
 
-
-
-        <div class="navBar">
+        <div className="navBar">
         
             <ul className="navBar">
             <img className="icon" src={process.env.PUBLIC_URL + "/primogemIcon.png"} alt="primogem"></img>

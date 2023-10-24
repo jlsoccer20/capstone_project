@@ -24,7 +24,7 @@ export default function CharacterInfo() {
         //<Route path='/characters/add' element={<CharacterForm/>} />
         //<Route path='/characters/edit/:id' element={<CharacterForm/>} />
         //<Route path='/characters/delete/:id' element={<ConfirmCharacterDelete/>} />
-        <div class="padme">
+        <div className="padme">
           <h1>{state.name}</h1>
           <h3>Vision: {state.vision}</h3>
           <h3>Rarity: {state.rarity}</h3>
@@ -48,14 +48,14 @@ export default function CharacterInfo() {
             }
             alt="Genshin Banner"
           ></img>
-          <img
+          {/* <img
             className="characterWish"
             src={
               process.env.PUBLIC_URL +
               `/characterInfo/Character_${state.name}_Full_Wish.webp`
             }
             alt="Genshin Banner"
-          ></img>
+          ></img> */}
 
           <h3>{state.wiki_url}</h3>
 
@@ -73,7 +73,7 @@ export default function CharacterInfo() {
         <h3>Vision: {state.vision}</h3>
         <h3>Vision: {state.vision}</h3> */}
 
-          {/* <div class="container">
+          {/* <div className="container">
             {data &&
               data.results &&
               data.results.map((character) => {
@@ -82,7 +82,7 @@ export default function CharacterInfo() {
                   `/characterInfo/${character.name}Info.png`;
                 //console.log("Image URL for", characterCardName, ":", imageUrl);
                 return (
-                  <div class="wrapper">
+                  <div className="wrapper">
                     <img
                       key={character.name}
                       className="characterCard"

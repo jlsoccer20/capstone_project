@@ -47,9 +47,9 @@ function Characters() {
         alt="Genshin Banner"
       ></img>
 
-      <h1 class="padme">Characters</h1>
-      <div class="container">
-        <div class="centerCards">
+      <h1 className="padme">Characters</h1>
+      <div className="container">
+        <div className="centerCards">
         {data &&
           data.results &&
           data.results.map((character) => {
@@ -59,7 +59,7 @@ function Characters() {
             return (
 
                 
-              <div class="wrapper">
+              <div className="wrapper">
                 <img
                   key={character.name}
                   className="characterCard"

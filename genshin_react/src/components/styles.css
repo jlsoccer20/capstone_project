@@ -1,3 +1,11 @@
+html,body{
+    cursor:url(../mousePointer.png), auto;
+}
+
+button, .btn{
+    cursor:url(../mouseHover.png), auto !important; /*overrides bootstrap styling*/
+}
+
 .header {
     background-color: #e17afa; /* Blue background color */
     color: #fff; /* White text color */
@@ -7,7 +15,6 @@
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    
 }
   
 .header-title {
@@ -118,15 +125,7 @@
 
 
 .characterCard:hover{
-    /* cursor:url(http://www.javascriptkit.com/dhtmltutors/cursor-hand.gif), auto; 
-    cursor:url("../../public/mousePointer.png"),  auto;
-    
-    cursor:url("./public/mouseHover.png"),  auto; */
-    
-    cursor:pointer;
     transform: scale(1.1);
-    
-    
 }
 
 .nav-item{
@@ -135,13 +134,14 @@
     margin:auto;
 }
 
+.nav-item:hover, .nav-item a:hover, .characterCard:hover{
+    cursor:url(../mouseHover.png), auto;
+}
+
 .navBar{
-    
     display: flex;
     height: 70px;
-    justify-content: center;
-    
-    
+    justify-content: center;  
 }
 
 .navBar ul{
