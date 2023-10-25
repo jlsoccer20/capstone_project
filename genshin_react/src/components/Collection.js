@@ -20,6 +20,16 @@ function Collection() {
     navigate("/characters/" + character.name, { state: character }); //passing character as state
   }
 
+  function retrieveCollection(){
+    var arrayCollection = localStorage.getItem("storedCollection");
+    var storedCollection = JSON.parse(arrayCollection);
+    if (storedCollection) {
+        console.log("retrieveCollection storedCollection: " + storedCollection);
+      } else {
+        console.log('No data found.');
+      }
+  
+  }
 
 //   useEffect(() => {
 //     async function fetchData() {
@@ -56,7 +66,7 @@ function Collection() {
         ))}
         
       </div> */}
-
+        
 
       <div className="collection">
       <div className="container">
@@ -67,9 +77,9 @@ function Collection() {
             const imageUrl =
               process.env.PUBLIC_URL + `/characters/${character.name}Card.png`;
             //console.log("Image URL for", characterCardName, ":", imageUrl);
+            retrieveCollection();
             return (
 
-                
               <div className="wrapper">
                 <img
                   key={character.name}
