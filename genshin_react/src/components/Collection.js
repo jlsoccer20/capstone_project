@@ -40,7 +40,7 @@ function Collection() {
 
 
   if(storedCollection){
-    console.log("Retrieve Stored Collection: " + storedCollection);
+    //console.log("Retrieve Stored Collection: " + storedCollection);
     return (
     <div>
         <img

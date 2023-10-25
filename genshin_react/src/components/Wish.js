@@ -110,19 +110,41 @@ function make_wish(){
     
   }
 
+  var unsortedList = [];
 function addCharacterToCollection(character){
-    // for (var i = 0; i < data.results.length; i++){
-    //     var item = data.results[i];
-    //     var card = [item.id,item.name];
-    //     collectionList.push(card);
-    // }
-    //var card = [character.vision, character.name]
+
+    unsortedList.push(character.name);
+
+
     collectionList.push(character);
+    
+    
     var list = [];
     for (var i = 0; i < collectionList.length; i++){
         list.push(collectionList[i].name)
     }
-    console.log("Collection: " + list);
+    console.log("Collection unsorted: " + unsortedList);
+
+    collectionList.sort((a, b) => {
+        // First, compare by vision
+        if (a.vision < b.vision) return -1;
+        if (a.vision > b.vision) return 1;
+      
+        // If vision are the same, compare by rarity
+        if (a.rarity < b.rarity) return -1;
+        if (a.rarity > b.rarity) return 1;
+      
+        // If rarity are also the same, compare by name
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+      
+        // If all criteria are the same, no change in order
+        return 0;
+
+      });
+      
+
+
     var storedCollection = collectionList;
     var arrayCollection = JSON.stringify(storedCollection)
     localStorage.setItem("storedCollection", arrayCollection);
@@ -140,10 +162,6 @@ function addCharacterToCollection(character){
     `/characterInfo/Character_${characterName}_Full_Wish.webp`;
     characterImage.src = link;
   }
-
-//   <Link to="/wish" className="btn btn-primary">
-//     Make a Wish!!
-//   </Link>;
 
   return (
     <div>
