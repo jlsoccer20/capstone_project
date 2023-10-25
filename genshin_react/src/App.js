@@ -42,16 +42,13 @@ function App() {
         const jsonData = await response.json();
         //jsonData.results.sort((a,b)=>a.vision.localeCompare(b.vision));
         jsonData.results.sort((a, b) => {
+          let visionCompare = a.vision.localeCompare(b.vision);
 
-            let visionCompare = a.vision.localeCompare(b.vision);
-        
-            if(visionCompare === 0) {
-        
-                return a.rarity.localeCompare(b.rarity);
-    
-            }
+          if (visionCompare === 0) {
+            return a.rarity.localeCompare(b.rarity);
+          }
 
-            return visionCompare;
+          return visionCompare;
         });
 
         setData(jsonData);
@@ -74,8 +71,6 @@ function App() {
     <LoadingContext.Provider value={{ loading, setLoading }}>
       <DataContext.Provider value={{ data, setData }}>
         <Router>
-          
-
           <Header />
           <Nav />
           <Routes>

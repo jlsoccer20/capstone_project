@@ -50,28 +50,27 @@ function Characters() {
       <h1 className="padme">Characters</h1>
       <div className="container">
         <div className="centerCards">
-        {data &&
-          data.results &&
-          data.results.map((character) => {
-            const imageUrl =
-              process.env.PUBLIC_URL + `/characters/${character.name}Card.png`;
-            //console.log("Image URL for", characterCardName, ":", imageUrl);
-            return (
-
-                
-              <div className="wrapper">
-                <img
-                  key={character.name}
-                  className="characterCard"
-                  src={imageUrl}
-                  alt={`${character.name} character card`}
-                  onClick={() => handleCharacterCardClick(character)}
-                  //onMouseOver={}
-                />
-              </div>
-            );
-          })}
-      </div>
+          {data &&
+            data.results &&
+            data.results.map((character) => {
+              const imageUrl =
+                process.env.PUBLIC_URL +
+                `/characters/${character.name}Card.png`;
+              //console.log("Image URL for", characterCardName, ":", imageUrl);
+              return (
+                <div className="wrapper">
+                  <img
+                    key={character.name}
+                    className="characterCard"
+                    src={imageUrl}
+                    alt={`${character.name} character card`}
+                    onClick={() => handleCharacterCardClick(character)}
+                    //onMouseOver={}
+                  />
+                </div>
+              );
+            })}
+        </div>
       </div>
 
       <div className="my-4">

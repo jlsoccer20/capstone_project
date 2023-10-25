@@ -32,7 +32,7 @@ export default function CharacterInfo() {
 
           {/* <img className="characterInfo" src={process.env.PUBLIC_URL + `/characterInfo/${state.name}Info.webp`} alt="Genshin Banner"></img>  */}
 
-          <img 
+          <img
             className="characterInfoGame"
             src={
               process.env.PUBLIC_URL +

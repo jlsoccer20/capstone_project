@@ -1,6 +1,3 @@
 export default function Language() {
-    return (
-    <div> English </div>
-    )
-    
+  return <div> English </div>;
 }
