@@ -14,45 +14,119 @@ function Collection() {
   const [characterCardIds, setCharacterCardIds] = useState([]);
   const navigate = useNavigate();
 
+  var arrayCollection = localStorage.getItem("storedCollection");
+  var storedCollection = JSON.parse(arrayCollection);
+
   function handleCharacterCardClick(character) {
     console.log("Character name: " + character.name);
     //<Link to='/characters/${characterCardName}' className="nav-link">CharacterCard</Link>
     navigate("/characters/" + character.name, { state: character }); //passing character as state
   }
 
-  function retrieveCollection(){
-    var arrayCollection = localStorage.getItem("storedCollection");
-    var storedCollection = JSON.parse(arrayCollection);
-    if (storedCollection) {
-        console.log("retrieveCollection storedCollection: " + storedCollection);
-      } else {
-        console.log('No data found.');
-      }
-  
+
+  function resetCollection(){
+    if(storedCollection){
+        localStorage.clear();
+        window.location.reload();
+        //storedCollection = JSON.parse("traveller (female)")
+        
+    
+    }
+    // collectionList.push("traveller (female)");
+    //     var storedCollection = collectionList;
+    //     var arrayCollection = JSON.stringify(storedCollection)
+    //     localStorage.setItem("storedCollection", arrayCollection);
   }
 
-//   useEffect(() => {
-//     async function fetchData() {
-//       try {
-//         const response = await fetch("https://gsi.fly.dev/characters");
-//         if (!response.ok) {
-//           throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-//         const jsonData = await response.json();
-//         setCharacters(jsonData.results);
-//         console.log(jsonData);
-//       } catch (error) {
-//         console.error("Error fetching data:", error);
-//       }
-//     }
 
-//     fetchData();
-//   }, []);
-
-  return (
-    // similar to Agents, use list to populate display
-    // TODO: do fetch requests here for characters, useEffect useState hooks
+  if(storedCollection){
+    console.log("Retrieve Stored Collection: " + storedCollection);
+    return (
     <div>
+        <img
+          className="header-image-home"
+          src={process.env.PUBLIC_URL + "/genshinbackground6.webp"}
+          alt="Genshin Banner"
+        ></img>
+  
+        <h1 className="padme">My Collection</h1>
+
+        <div className="padme">
+      
+        <button
+          type="reset"
+          onClick={() => resetCollection()}
+          className="btn btn-primary me-2"
+        >
+          Reset Collection
+        </button>
+     
+      </div>
+        {/* <div className="my-4">
+          {characters.map((c) => (
+            <div>{c.name}</div>
+          ))}
+          
+        </div> */}
+          
+  
+        <div className="collection">
+        <div className="container">
+          <div className="centerCards">
+
+          <div className="wrapper">
+                <img
+                  key="traveller (female)"
+                  className="characterCard"
+                  src={process.env.PUBLIC_URL + "/characters/traveller (female)Card.png"}
+                  alt={`traveller (female) character card`}
+                
+                />
+              </div>
+              <div className="wrapper">
+                <img
+                  key="traveller (male)"
+                  className="characterCard"
+                  src={process.env.PUBLIC_URL + "/characters/traveller (male)Card.png"}
+                  alt={`traveller (male) character card`}
+                
+                />
+              </div>
+  
+          {
+          storedCollection.map((character) => {
+            
+              const imageUrl =
+                process.env.PUBLIC_URL + `/characters/${character}Card.png`;
+              //console.log("Image URL for", characterCardName, ":", imageUrl);
+              //retrieveCollection();
+              return (
+  
+                <div className="wrapper">
+                  <img
+                    key={character.name}
+                    className="characterCard"
+                    src={imageUrl}
+                    alt={`${character.name} character card`}
+                    onClick={() => handleCharacterCardClick(character)}
+                    //onMouseOver={}
+                  />
+                </div>
+              );
+            })}
+        </div>
+        </div>
+        </div>
+      </div>
+      );
+  } 
+  
+  else{ //no data found
+    console.log('No data found.');
+
+    return(
+        
+<div>
       <img
         className="header-image-home"
         src={process.env.PUBLIC_URL + "/genshinbackground6.webp"}
@@ -60,6 +134,18 @@ function Collection() {
       ></img>
 
       <h1 className="padme">My Collection</h1>
+
+      <div className="padme">
+      
+        <button
+          type="reset"
+          onClick={() => resetCollection()}
+          className="btn btn-primary me-2"
+        >
+          Reset Collection
+        </button>
+     
+      </div>
       {/* <div className="my-4">
         {characters.map((c) => (
           <div>{c.name}</div>
@@ -71,34 +157,35 @@ function Collection() {
       <div className="collection">
       <div className="container">
         <div className="centerCards">
-        {data &&
-          data.results &&
-          data.results.map((character) => {
-            const imageUrl =
-              process.env.PUBLIC_URL + `/characters/${character.name}Card.png`;
-            //console.log("Image URL for", characterCardName, ":", imageUrl);
-            retrieveCollection();
-            return (
 
               <div className="wrapper">
                 <img
-                  key={character.name}
+                  key="traveller (female)"
                   className="characterCard"
-                  src={imageUrl}
-                  alt={`${character.name} character card`}
-                  onClick={() => handleCharacterCardClick(character)}
-                  //onMouseOver={}
+                  src={process.env.PUBLIC_URL + "/characters/traveller (female)Card.png"}
+                  alt={`traveller (female) character card`}
+                
                 />
               </div>
-            );
-          })}
+              <div className="wrapper">
+                <img
+                  key="traveller (male)"
+                  className="characterCard"
+                  src={process.env.PUBLIC_URL + "/characters/traveller (male)Card.png"}
+                  alt={`traveller (male) character card`}
+                
+                />
+              </div>
       </div>
       </div>
         
 
       </div>
     </div>
-  );
+    )
+
+  }
+
 }
 
 export default Collection;

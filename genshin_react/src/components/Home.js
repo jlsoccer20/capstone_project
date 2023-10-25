@@ -9,6 +9,8 @@ function Home() {
         <p className="padme"> Please use the navigation links at the top.</p>
 
     </div>
+
+    
     
     );
 }
