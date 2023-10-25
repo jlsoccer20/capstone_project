@@ -43,7 +43,7 @@ function Characters() {
     <div>
       <img
         className="header-image-home"
-        src={process.env.PUBLIC_URL + "/genshinbackground7.webp"}
+        src={process.env.PUBLIC_URL + "/eulajeanbackground.jpg"} // genshinbackground7.webp
         alt="Genshin Banner"
       ></img>
 
