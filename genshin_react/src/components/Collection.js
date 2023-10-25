@@ -97,7 +97,7 @@ function Collection() {
           storedCollection.map((character) => {
             
               const imageUrl =
-                process.env.PUBLIC_URL + `/characters/${character}Card.png`;
+                process.env.PUBLIC_URL + `/characters/${character.name}Card.png`;
               //console.log("Image URL for", characterCardName, ":", imageUrl);
               //retrieveCollection();
               return (

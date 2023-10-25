@@ -95,22 +95,34 @@ function make_wish(){
   function makeAWish() {
     //console.log("gewished!");
     let i = Math.floor(Math.random() * data.results.length); //51 characters, index 0 to 50
-    var randomCharacterName = data.results[i].name;
+    var randomCharacter = data.results[i];
+    //var randomCharacter.name Name = data.results[i].name;
 
 
-    if (randomCharacterName == "Traveller (female)" || randomCharacterName == "Traveller (male)"){
-        console.log(randomCharacterName + " is not available.");
+    if (randomCharacter.name == "Traveller (female)" || randomCharacter.name == "Traveller (male)"){
+        console.log(randomCharacter.name + " is not available.");
         makeAWish();
         return;
     }
-    displayCharacterImage(randomCharacterName);
-    addCharacterToCollection(randomCharacterName);
+    displayCharacterImage(randomCharacter.name);
+    addCharacterToCollection(randomCharacter);
+
     
   }
 
-function addCharacterToCollection(characterName){
-    collectionList.push(characterName);
-    console.log("collection list is: " + collectionList);
+function addCharacterToCollection(character){
+    // for (var i = 0; i < data.results.length; i++){
+    //     var item = data.results[i];
+    //     var card = [item.id,item.name];
+    //     collectionList.push(card);
+    // }
+    //var card = [character.vision, character.name]
+    collectionList.push(character);
+    var list = [];
+    for (var i = 0; i < collectionList.length; i++){
+        list.push(collectionList[i].name)
+    }
+    console.log("Collection: " + list);
     var storedCollection = collectionList;
     var arrayCollection = JSON.stringify(storedCollection)
     localStorage.setItem("storedCollection", arrayCollection);
