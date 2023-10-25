@@ -123,7 +123,7 @@ function addCharacterToCollection(character){
     for (var i = 0; i < collectionList.length; i++){
         list.push(collectionList[i].name)
     }
-    console.log("Collection unsorted: " + unsortedList);
+    console.log("Current wish session results unsorted: " + unsortedList);
 
     collectionList.sort((a, b) => {
         // First, compare by vision
