@@ -19,12 +19,18 @@ export default function CharacterInfo() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        
+        //<pre>{JSON.stringify(data, null, 2)}</pre>
+        //<Route path='/characters' element={<CharacterList/>} />
+        //<Route path='/characters/add' element={<CharacterForm/>} />
+        //<Route path='/characters/edit/:id' element={<CharacterForm/>} />
+        //<Route path='/characters/delete/:id' element={<ConfirmCharacterDelete/>} />
         <div className="padme">
           <h1>{state.name}</h1>
           <h3>Vision: {state.vision}</h3>
           <h3>Rarity: {state.rarity}</h3>
           <h3>Weapon: {state.weapon}</h3>
+
+          {/* <img className="characterInfo" src={process.env.PUBLIC_URL + `/characterInfo/${state.name}Info.webp`} alt="Genshin Banner"></img>  */}
 
           <img
             className="characterInfoGame"
@@ -61,7 +67,11 @@ export default function CharacterInfo() {
         <h3>constellation: {state.constellation}</h3>
         <h3>real_name: {state.real_name}</h3>
         <h3>model_type: {state.model_type}</h3>
-         */}
+
+        <h3>Vision: {state.vision}</h3>
+        <h3>Vision: {state.vision}</h3>
+        <h3>Vision: {state.vision}</h3>
+        <h3>Vision: {state.vision}</h3> */}
 
           {/* <div className="container">
             {data &&

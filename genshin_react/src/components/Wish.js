@@ -12,79 +12,71 @@ export default function Wish() {
   const { loading, setLoading } = useContext(LoadingContext);
   //const { state } = useLocation();
 
+  let five_star_chance = 0.00006;
+  let four_star_chance = 0.01;
 
+  let five_star_pity = 90;
+  let four_star_pity = 10;
 
-  //TODO: Lines 20 to 82 are code to calculate more realistic in-game conditions. 
-  //I would like to implement it in the near future, but it is not used in the current version
+  let count = 0;
+  var fifty_fifty_guaranteed = false;
+  var banner_five_star_id; // set to some character id
 
-//   let four_star_chance = 0.01;
+  function get_five_star_with_fifty_fifty() {
+    if (fifty_fifty_guaranteed) {
+      // reset 50_50 chances
+      fifty_fifty_guaranteed = false;
+      return banner_five_star_id;
+    }
 
-//   let five_star_pity = 90;
-//   let four_star_pity = 10;
+    // only need "if else" if no return statements
+    if (Math.random() < 0.5) {
+      return banner_five_star_id;
+    }
 
-//   let count = 0;
-//   var fifty_fifty_guaranteed = false;
-//   var banner_five_star_id; // set to some character id
+    // lost the 50_50
+    fifty_fifty_guaranteed = true;
+    return get_random_five_star_id();
+  }
 
-//   function get_five_star_with_fifty_fifty() {
-//     if (fifty_fifty_guaranteed) {
-//       // reset 50_50 chances
-//       fifty_fifty_guaranteed = false;
-//       return banner_five_star_id;
-//     }
+  function get_random_five_star_id() {
+    //TODO
+  }
 
-//     // only need "if else" if no return statements
-//     if (Math.random() < 0.5) {
-//       return banner_five_star_id;
-//     }
+  function get_random_four_star_id() {
+    //TODO
+  }
 
-//     // lost the 50_50
-//     fifty_fifty_guaranteed = true;
-//     return get_random_five_star_id();
-//   }
+  // returns character id
+  function make_wish() {
+    // check for hard pity // stateMachine.
+    if (count == 90) {
+      return get_five_star_with_fifty_fifty();
+    }
 
-//   function get_random_five_star_id() {
-//     //TODO
-//   }
+    // Check for soft pity
+    var chance_multiplier;
 
-//   function get_random_four_star_id() {
-//     //TODO
-//   }
+    if (count < 75) {
+      chance_multiplier = 1;
+    } else {
+      chance_multiplier = 10;
+    }
 
-//   // returns character id
-//   function make_wish() {
-//     // check for hard pity // stateMachine.
-//     if (count == 90) {
-//       return get_five_star_with_fifty_fifty();
-//     }
+    // Its your lucky day
+    if (Math.random() <= five_star_chance * chance_multiplier) {
+      return get_five_star_with_fifty_fifty();
+    }
 
-//     // Check for soft pity
-//     var chance_multiplier;
-
-//     if (count < 75) {
-//       chance_multiplier = 1;
-//     } else {
-//       chance_multiplier = 10;
-//     }
-
-//     // Its your lucky day
-//     if (Math.random() <= five_star_chance * chance_multiplier) {
-//       return get_five_star_with_fifty_fifty();
-//     }
-
-//     // return four star
-//     //cheeck guaranteed 4 star
-//     // four star
-//     if (Math.random() <= four_star_chance * chance_multiplier) {
-//       return get_random_four_star_id();
-//     }
-//     //return Aloy character
-//   }
-
-
-  
-
-
+    // return four star
+    //cheeck guaranteed 4 star,
+    //
+    // four star
+    if (Math.random() <= four_star_chance * chance_multiplier) {
+      return get_random_four_star_id();
+    }
+    //return Aloy
+  }
 
   function makeAWish() {
     //console.log("gewished!");
